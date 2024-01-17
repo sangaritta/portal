@@ -21,6 +21,38 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
     return regExp.hasMatch(email);
   }
 
+  void resetPassword() {
+    if (isEmail(emailCtrl.text)) {
+                                  auth.resetPassword(emailCtrl.text);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Row(
+                                    children: [
+                                      const Padding(padding: EdgeInsets.fromLTRB(0, 0, 15, 0,), 
+                                      child: Icon(Icons.check_circle_rounded)
+                                      ,),
+                                      Text("If the account ${emailCtrl.text} exists, a mail would be send to reset the password"),
+                                    ],
+                                  ))
+                                );
+                                Navigator.of(context).pop();
+                                }
+                                else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content: Row(
+                                    children: [
+                                      Padding(padding: EdgeInsets.fromLTRB(0, 0, 15, 0,), 
+                                      child: Icon(Icons.error_rounded,
+                                      color: Colors.white,
+                                      )
+                                      ,),
+                                      Text("Email is invalid"),
+                                    ],
+                                  ))
+                                );
+                                }
+                                
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +95,7 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                 
                 UnconstrainedBox(
                   child: Container(
-                    height: 175,
+                    height: 220,
                     width: 400,
                     margin: const EdgeInsets.fromLTRB(25, 35, 25, 35),
                     decoration: BoxDecoration(
@@ -93,7 +125,36 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                       child: Column(
                         children: [
                           Container(
-                            margin: const EdgeInsets.fromLTRB(20, 20, 20, 5),
+                            margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              child: TextButton(
+                                style: TextButton.styleFrom(
+                                  foregroundColor: Theme.of(context).primaryColor,
+                                  textStyle: const TextStyle(
+                                    fontFamily: fontNameSemiBold,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const SizedBox(
+                                  width: 80,
+                                  child: Row(
+                                    children: [
+                                      Icon (Icons.arrow_back),
+                                       Text(
+                                        'Go Back',
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),                
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                             decoration: BoxDecoration(
                               color: Colors.transparent,
                               borderRadius: const BorderRadius.only(
@@ -120,11 +181,7 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                               ),
                               textInputAction: TextInputAction.done,
                               onFieldSubmitted: (term) {
-                                auth.resetPassword(emailCtrl.text);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("If the account ${emailCtrl.text} exists, a mail would be send to reset the password"))
-                                );
-                                Navigator.of(context).pop();
+                               resetPassword();
                               },
                               keyboardType: TextInputType.emailAddress,
                               autocorrect: false,
@@ -163,14 +220,10 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                                     ],
                                   ),
                                   margin:
-                                      const EdgeInsets.fromLTRB(50, 15, 50, 0),
+                                      const EdgeInsets.fromLTRB(50, 0, 50, 0),
                                   child: GFButton(
                                     onPressed: (){
-                                     auth.resetPassword(emailCtrl.text);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("If the account ${emailCtrl.text} exists, a mail would be send to reset the password"))
-                                );
-                                Navigator.of(context).pop();
+                                      resetPassword();
                                     },
                                     text: "Reset Password",
                                     textStyle: const TextStyle(
@@ -184,7 +237,8 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                                     fullWidthButton: false,
                                     color: const Color(mainColor4),
                                   ),
-                                ),                
+                                ),
+                                
                                 
                         ],
                       ),
