@@ -23,15 +23,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -61,9 +55,27 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDpPK5LE6sTF-XWEVggz5cl9zNO6Kgc5W0',
-    appId: '1:642006970123:android:636ca2e50215281f28bc0e',
+    appId: '1:642006970123:android:185e2e399e7abcba28bc0e',
     messagingSenderId: '642006970123',
     projectId: 'portal-410523',
     storageBucket: 'portal-410523.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyC12XR94f2TA15fhmqhWiu9cIvn_DkZwfM',
+    appId: '1:642006970123:ios:e424bfce5b5d29e028bc0e',
+    messagingSenderId: '642006970123',
+    projectId: 'portal-410523',
+    storageBucket: 'portal-410523.appspot.com',
+    iosBundleId: 'cc.blackmatter.portal',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyC12XR94f2TA15fhmqhWiu9cIvn_DkZwfM',
+    appId: '1:642006970123:ios:d60b072522c1e0f928bc0e',
+    messagingSenderId: '642006970123',
+    projectId: 'portal-410523',
+    storageBucket: 'portal-410523.appspot.com',
+    iosBundleId: 'com.example.portal.RunnerTests',
   );
 }

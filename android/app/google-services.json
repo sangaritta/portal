@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:642006970123:android:185e2e399e7abcba28bc0e",
+        "android_client_info": {
+          "package_name": "cc.blackmatter.portal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642006970123-tb3lumbi9vsd0heldolt1edrqoh4nqen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpPK5LE6sTF-XWEVggz5cl9zNO6Kgc5W0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642006970123-tb3lumbi9vsd0heldolt1edrqoh4nqen.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:642006970123:android:636ca2e50215281f28bc0e",
         "android_client_info": {
           "package_name": "com.example.portal"
