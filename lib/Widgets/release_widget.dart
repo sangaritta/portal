@@ -33,8 +33,8 @@ class _ReleaseState extends State<Release> {
                 style: TextStyle(
                   color: Theme.of(context).primaryColor
                 ),
-                
                 ),
+                trailing: Icon(Icons.arrow_circle_right, color: Theme.of(context).primaryColor,),
             ),
           )
         ],
