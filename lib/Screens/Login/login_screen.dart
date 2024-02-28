@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         children: <Widget>[
           Image.asset(
-            "assets/images/back2.png",
+            "assets/images/backdrop.png",
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -186,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       elevation: 100,
-                      color: Theme.of(context).colorScheme.background,
+                      color: Colors.black,
                       child: Column(
                         children: [
                           Container(

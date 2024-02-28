@@ -28,7 +28,7 @@ class Themes {
     hintColor: const Color(0xFF161616),
     cupertinoOverrideTheme:
         const CupertinoThemeData(brightness: Brightness.dark),
-    scaffoldBackgroundColor: const Color.fromARGB(255, 35, 35, 36),
+    scaffoldBackgroundColor: const Color.fromARGB(255, 15, 15, 16),
     primaryColor: Colors.white,
     shadowColor: const Color.fromARGB(255, 35, 35, 36),
     cardColor: const Color.fromARGB(255, 53, 53, 55),
