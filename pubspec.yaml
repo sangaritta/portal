@@ -54,6 +54,8 @@ dependencies:
   animated_tree_view: ^2.2.0
   flutter_bloc: ^8.1.4
   equatable: ^2.0.5
+  flutter_screenutil: ^5.9.0
+  material_symbols_icons: ^4.2719.1
 
 dev_dependencies:
   flutter_test:

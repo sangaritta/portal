@@ -10,6 +10,11 @@ class ApiService {
   DocumentSnapshot<Map<String, dynamic>> doc = await db.collection("catalog").doc(auth.getUser()!.uid).get();
   return doc;
 }
+
+  Future<QuerySnapshot<Map<String, dynamic>>> getArtists() async {
+  QuerySnapshot<Map<String, dynamic>> doc = await db.collection("artists").get();
+  return doc;
+}
 }
 
 ApiService api = ApiService();

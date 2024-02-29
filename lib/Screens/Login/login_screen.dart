@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:portal/Screens/Home/home_screen.dart';
+import 'package:portal/Screens/Home/sidebar_menu.dart';
 import 'package:portal/Screens/Login/forgotpass_screen.dart';
 import 'package:portal/Services/auth_service.dart';
 import 'package:portal/Services/permissions_service.dart';
@@ -161,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 UnconstrainedBox(
                   child: Container(
                     height: 275,
-                    width: 400,
+                    width: 450,
                     margin: const EdgeInsets.fromLTRB(25, 35, 25, 35),
                     decoration: BoxDecoration(
                       color: Colors.transparent,
@@ -209,6 +210,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ],
                             ),
                             child: TextFormField(
+                              autofillHints: const [AutofillHints.username],
                               controller: emailCtrl,
                               style: TextStyle(
                                 color: Theme.of(context).primaryColor,
@@ -259,6 +261,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             margin: const EdgeInsets.fromLTRB(20, 20, 20, 5),
                             child: TextFormField(
+                              autofillHints: const [AutofillHints.password],
                               controller: passCtrl,
                               style: TextStyle(
                                 color: Theme.of(context).primaryColor,
@@ -318,36 +321,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                       const EdgeInsets.fromLTRB(0, 15, 0, 28),
                                   child: const CupertinoActivityIndicator(),
                                 )
-                              : Container(
-                                  decoration: BoxDecoration(
-                                    color: const Color(mainColor3),
-                                    borderRadius: const BorderRadius.all(Radius.circular(30)),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.3),
-                                        spreadRadius: 5,
-                                        blurRadius: 6,
-                                        offset: const Offset(0, 3),
-                                      ),
-                                    ],
-                                  ),
-                                  margin:
-                                      const EdgeInsets.fromLTRB(50, 0, 50, 0),
-                                  child: GFButton(
-                                    onPressed: login,
-                                    text: "Login",
-                                    textStyle: const TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: fontNameSemiBold,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                    shape: GFButtonShape.pills,
-                                    size: GFSize.MEDIUM,
-                                    fullWidthButton: false,
-                                    color: const Color(mainColor3),
-                                  ),
-                                ),                
+                              : ElevatedButton(
+                                style: ElevatedButton.styleFrom(backgroundColor: Colors.black, minimumSize: Size(200, 50)),
+                                onPressed: (){
+                                  login();
+                                }, child:
+                              Text("Sign In", style: TextStyle(color: Colors.pinkAccent[50]),),
+                              ),                
                                 
                         ],
                       ),
