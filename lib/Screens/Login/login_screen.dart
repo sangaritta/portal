@@ -9,6 +9,7 @@ import 'package:portal/Services/auth_service.dart';
 import 'package:portal/Services/permissions_service.dart';
 import 'package:portal/Constants/colors.dart';
 import 'package:portal/Constants/fonts.dart';
+import 'package:portal/Widgets/signup_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -157,6 +158,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontSize: 24,
                       ),
                     ),
+                  ),
+                ),
+                Center(
+                  child: const SizedBox(
+                    child: RainbowButton(),
                   ),
                 ),
                 UnconstrainedBox(
@@ -334,6 +340,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
+                
               ],
             ),
           ),
