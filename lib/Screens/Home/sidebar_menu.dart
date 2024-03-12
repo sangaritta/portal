@@ -23,17 +23,12 @@ class SidebarMenu extends StatelessWidget {
           TreeNode(key: "Music", data: Icons.music_note_rounded),
           TreeNode(key: "Videos", data: Icons.video_collection_rounded),
         ]),
-      TreeNode(key: "Plugins", data: Icons.cable)
-        ..addAll([
-          TreeNode(key: "Animated Tree View"),
-          TreeNode(key: "Flutter BLoC"),
-          TreeNode(key: "Material"),
-        ]),
       TreeNode(key: "Analytics", data: Icons.analytics),
-      TreeNode(key: "Collection", data: Icons.collections_bookmark)
+
+        TreeNode(key: "Banking", data: Icons.monetization_on)
         ..addAll([
-          TreeNode(key: "Framework"),
-          TreeNode(key: "Technology"),
+          TreeNode(key: "My Finance"),
+          TreeNode(key: "Royalties Sharing"),
         ]),
       TreeNode(key: "Settings", data: Icons.settings),
     ],
