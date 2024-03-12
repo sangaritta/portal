@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portal/Constants/fonts.dart';
 import 'package:getwidget/getwidget.dart';
@@ -53,13 +54,14 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                                 
   }
 
+  bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: <Widget>[
           Image.asset(
-            "assets/images/back.png",
+            "assets/images/backdrop.png",
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -96,7 +98,7 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                 UnconstrainedBox(
                   child: Container(
                     height: 220,
-                    width: 400,
+                    width: 450,
                     margin: const EdgeInsets.fromLTRB(25, 35, 25, 35),
                     decoration: BoxDecoration(
                       color: Colors.transparent,
@@ -121,7 +123,7 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       elevation: 100,
-                      color: Theme.of(context).colorScheme.background,
+                      color: Colors.black,
                       child: Column(
                         children: [
                           Container(
@@ -206,38 +208,19 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                               ),
                             ),
                           ),
-                         Container(
-                                  decoration: BoxDecoration(
-                                    color: const Color(mainColor4),
-                                    borderRadius: const BorderRadius.all(Radius.circular(30)),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.3),
-                                        spreadRadius: 5,
-                                        blurRadius: 6,
-                                        offset: const Offset(0, 3),
-                                      ),
-                                    ],
-                                  ),
-                                  margin:
-                                      const EdgeInsets.fromLTRB(50, 0, 50, 0),
-                                  child: GFButton(
-                                    onPressed: (){
-                                      resetPassword();
-                                    },
-                                    text: "Reset Password",
-                                    textStyle: const TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: fontNameSemiBold,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                    shape: GFButtonShape.pills,
-                                    size: GFSize.MEDIUM,
-                                    fullWidthButton: false,
-                                    color: const Color(mainColor4),
-                                  ),
-                                ),
+                         _isLoading
+                              ? Container(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 15, 0, 28),
+                                  child: const CupertinoActivityIndicator(),
+                                )
+                              : ElevatedButton(
+                                style: ElevatedButton.styleFrom(backgroundColor: Colors.black, minimumSize: Size(200, 50)),
+                                onPressed: (){
+                                  resetPassword();
+                                }, child:
+                              Text("Reset Password", style: TextStyle(color: Colors.pinkAccent[50]),),
+                              ),               
                                 
                                 
                         ],
