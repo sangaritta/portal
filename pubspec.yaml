@@ -58,6 +58,14 @@ dependencies:
   material_symbols_icons: ^4.2719.1
   flutter_animate: ^4.5.0
 
+dependency_overrides:
+  web: ^1.0.0
+  permission_handler_html:
+    git:
+      url: https://github.com/hpoul/flutter-permission-handler.git
+      path: permission_handler_html
+      ref: permissiondescriptor
+      
 dev_dependencies:
   flutter_test:
     sdk: flutter
